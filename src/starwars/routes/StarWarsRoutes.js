@@ -1,5 +1,6 @@
 import {Routes,Route} from 'react-router-dom'
 import { DashBoard } from '../pages'
+import { PeoplePage } from '../pages/PeoplePage'
 export const StarWarsRoutes = () => {
     return(
         <>
@@ -7,6 +8,7 @@ export const StarWarsRoutes = () => {
             <div>
                 <Routes>
                     <Route path="/" element={<DashBoard/>}/>
+                    <Route path="people/:id" element={<PeoplePage/>}/>
                 </Routes>
             </div>
         </>
