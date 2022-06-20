@@ -1,54 +1,64 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { PeopleList } from "../components/PeopleList"
 
 
 export const DashBoard = () => {
-    const [characters, setCharacters] = useState([])
+    const [characters, setCharacters] = useState([])//useState(JSON.parse(localStorage.getItem('list')))
+    // const people = JSON.parse(localStorage.getItem('list')) /// characters 
+    let {selection = 'people'} = useParams()
 
     useEffect(() => {
+        // if (!characters) {
+        //     getAllPeople()
+        // }
+        setCharacters(null)
         getAllPeople()
-    }, [])
+    }, [selection])
 
-    const getAllPeople = async () => {
-        let allChars = []
+    const getAllPeople =  () => {
         let i = 1;
-        while (i !== 0) {
-
-            await fetch(`https://swapi.dev/api/people/?page=${i}`)
-                .then(resp => resp.json())
-                .then(data => {
-                    (data.next) ? i++ : i = 0
-                    data.results.map(x => {
-                        allChars.push(x)
-                    })
-                    // allChars.push(data.results)
-                })
-        }
-        setCharacters(allChars)
-
-
+         fetch(`https://swapi.dev/api/${selection}/?page=${i}`)
+            .then(resp => resp.json())
+            .then(data => {
+                setCharacters(data.results)
+                // localStorage.setItem('list', JSON.stringify(data.results))
+            })
 
     }
-    console.log(characters)
-    return (
-        <>
-            Soy DashBoard
-            <div className="container">
-                <div className="row">
-                {
-                    characters?.map((character, index) => {
-                        if (index > 15) index++
-                        return (
-                            <PeopleList
-                                key={index}
-                                index={index}
-                                {...character}
-                            />
-                        )
-                    })
-                }
+    if (characters) {
+        return (
+            <>
+                <div className="container">
+                    <div className='d-flex align-items-center justify-content-center mt-5' >
+                        <div className="row mb-5">
+                            {
+                                characters?.map((character, index) => {
+                                    if (index > 15) index++
+                                    return (
+                                        <PeopleList
+                                            key={index}
+                                            index={index}
+                                            selection={selection}
+                                            {...character}
+                                        />
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
+    } else {
+        return (
+            <div className='container-fluid' style={{ height: '100vh' }}>
+                <div className="h-100 d-flex align-items-center justify-content-center" >
+                    <div className='spinner-border' role='status'>
+                        <span className='visually-hidden'>Loading...</span>
+                    </div>
                 </div>
             </div>
-        </>
-    )
+        )
+    }
 }

@@ -1,9 +1,9 @@
 import { AppRouter } from "./router/AppRouter"
-
+import './index.css'
 export const StarWarsApp = () => {
     return(
-        <>
-            <AppRouter/>
-        </>
+        <div className="bg">
+           <AppRouter/>
+        </div>
     )
 }
