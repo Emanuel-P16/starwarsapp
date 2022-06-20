@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Spinner } from "../../ui/components/Spinner"
 import { PeopleList } from "../components/PeopleList"
 
 
@@ -31,7 +32,7 @@ export const DashBoard = () => {
             <>
                 <div className="container">
                     <div className='d-flex align-items-center justify-content-center mt-5' >
-                        <div className="row mb-5">
+                        <div className="row">
                             {
                                 characters?.map((character, index) => {
                                     if (index > 15) index++
@@ -52,13 +53,7 @@ export const DashBoard = () => {
         )
     } else {
         return (
-            <div className='container-fluid' style={{ height: '100vh' }}>
-                <div className="h-100 d-flex align-items-center justify-content-center" >
-                    <div className='spinner-border' role='status'>
-                        <span className='visually-hidden'>Loading...</span>
-                    </div>
-                </div>
-            </div>
+            <Spinner/>
         )
     }
 }

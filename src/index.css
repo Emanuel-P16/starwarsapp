@@ -18,6 +18,9 @@ code {
 }
 
 .bg{
-    background-image:  url("https://images.pond5.com/hyperspace-jump-light-speed-effect-footage-085245859_prevstill.jpeg");
-    height: 100%;
+    background-image:  url('../public/assets/giphy.gif');
+    background-size:100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height: 100vh;
 }

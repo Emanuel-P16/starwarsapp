@@ -12,11 +12,11 @@ export const PeopleList = ({ index,selection, ...character }) => {
     // } 
     return (
         <div className="col mb-5">
-            <div className="card text-center" style={{ width: '13rem' }}>
+            <div className="card text-center bg-dark" style={{ width: '13rem' }}>
                 {/* <img src={`https://starwars-visualguide.com/assets/img/${choice}/${index + 1}.jpg`} className="img-fluid" alt="" /> */}
                 <img src={`${imgPath}.jpg`} className="img-fluid" alt={`/assets/placeholder.jpg`} />
                 <div className="card-body">
-                    <Link to={`/${character.url.slice(character.url.search(choice))}`}>
+                    <Link className="link-light" to={`/${character.url.slice(character.url.search(choice))}`}>
                         <h5 className="card-title">{(character.name) ? character.name : character.title}</h5>
                     </Link>
                     {/* <Link to={`/${selection}/${index}`}>

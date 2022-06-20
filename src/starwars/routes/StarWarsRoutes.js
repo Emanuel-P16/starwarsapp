@@ -1,8 +1,7 @@
 import {Routes,Route} from 'react-router-dom'
 import { Navbar } from '../../ui/components/Navbar'
 import { DashBoard } from '../pages'
-import { PeoplePage } from '../pages/PeoplePage'
-import { StarShips } from '../pages/StarShips'
+import { CardPage } from '../pages/CardPage'
 export const StarWarsRoutes = () => {
     return(
         <>
@@ -10,8 +9,7 @@ export const StarWarsRoutes = () => {
                 <Routes>
                     <Route path="/" element={<DashBoard/>}/>
                     <Route path="/:selection" element={<DashBoard/>}/>
-                    <Route path="/:selection/:id" element={<PeoplePage/>}/>
-                    {/* <Route path="/starships" element={<StarShips/>}/> */}
+                    <Route path="/:selection/:id" element={<CardPage/>}/>
                 </Routes>
         </>
     )

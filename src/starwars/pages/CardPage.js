@@ -1,7 +1,8 @@
 
 import { useParams, useNavigate } from 'react-router-dom'
+import { Spinner } from '../../ui/components/Spinner'
 import { useFetchId } from '../hooks/useFetchId'
-export const PeoplePage = () => {
+export const CardPage = () => {
     const { selection, id } = useParams()
     const data = useFetchId(`https://swapi.dev/api/${selection}`, id)
 
@@ -19,37 +20,38 @@ export const PeoplePage = () => {
         imgPath = imgPath.slice(0,-1)
         attributes = Object.keys(data.data)
        attributes = attributes.filter(x => {
-        return x !== 'url' && x !== 'created' && x !== 'edited' && x !== 'starships' && x !== 'vehicles' && x !== 'films' && x !== 'homeworld'
+        return x !== 'url' && x !== 'created' && x !== 'edited' && x !== 'starships' && x !== 'vehicles' && x !== 'films' && x !== 'homeworld' && x !== 'species' && x !== 'people' && x !== 'characters' && x !== 'planets' && x !== 'episode_id'
        })
         return (
 
-            <div className='container-fluid d-flex align-items-center justify-content-center' style={{ height: '100%' }}>
-                <div className="card" style={{maxWidth: '80%'}}>
+            <div className='container-fluid d-flex align-items-center justify-content-center mt-5'  style={{maxWidth: '55%'}}>
+                <div className="card text-bg-dark border-light mt-5">
                     <div className="row g-0">
-                        <div className="col-md-4">
+                        <div className="col-md-6">
                             <img
                                 src={`${imgPath}.jpg`}
                                 alt="Img not found"
                                 className="img-fluid rounded-start"
+                                style={{width:'100%',height: '100%'}}
                             />
                         </div>
-                        <div className="col-md-8">
+                        <div className="col-md-6">
                             <div className="card-body">
                                 <h5 className="card-title text-center">{data.data.name}</h5>
-                                <ul className="list-group list-group-flush">
+                                {/* <ul className="list-group list-group-flush"> */}
                                     {attributes.map((x, index) => {
                                         return (
-                                            <li className="list-group-item" key={index} >
-                                                <p> {x.charAt(0).toUpperCase() + x.slice(1).replace('_', ' ')}: {data.data[x]}</p>
+                                            // <li className="list-group-item" key={index} >
+                                                <p key={index} className=''> {x.charAt(0).toUpperCase() + x.slice(1).replace('_', ' ')}: {data.data[x]}</p>
 
-                                            </li>
+                                            // </li>
                                         )
                                     })}
                                     <button
-                                        className='btn btn-outline-primary'
+                                        className='btn btn-outline-light'
                                         onClick={onNavigateBack}
                                     >Back</button>
-                                </ul>
+                                {/* </ul> */}
                             </div>
                         </div>
                     </div>
@@ -58,13 +60,7 @@ export const PeoplePage = () => {
         )
     } else {
         return (
-            <div className='container-fluid' style={{ height: '90vh' }}>
-                <div className="h-100 d-flex align-items-center justify-content-center" >
-                    <div className='spinner-border' role='status'>
-                        <span className='visually-hidden'>Loading...</span>
-                    </div>
-                </div>
-            </div>
+          <Spinner/>
         )
     }
 }
