@@ -12,7 +12,7 @@ export const PeopleList = ({ index,selection, ...character }) => {
     // } 
     return (
         <div className="col mb-5">
-            <div className="card text-center bg-dark" style={{ width: '13rem' }}>
+            <div className="card text-center bg-dark" style={{ width: '12.5rem',maxHeight: '22rem' }}>
                 {/* <img src={`https://starwars-visualguide.com/assets/img/${choice}/${index + 1}.jpg`} className="img-fluid" alt="" /> */}
                 <img src={`${imgPath}.jpg`} className="img-fluid" alt={`/assets/placeholder.jpg`} />
                 <div className="card-body">

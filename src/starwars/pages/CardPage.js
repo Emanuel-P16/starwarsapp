@@ -64,18 +64,3 @@ export const CardPage = () => {
         )
     }
 }
-{/* <li className="list-group-item">
-<h4>Gender: {data.data.gender}</h4>
-</li>
-<li className="list-group-item"><h4>Height: {data.data.height}</h4></li>
-<li className="list-group-item"><h4>Mass: {data.data.mass} </h4></li>
-<li className="list-group-item"><h4>Birth: {data.data.birth_year} </h4></li>
-<li className="list-group-item"><h4>species: {data.data.species} </h4></li>
-<li className="list-group-item"><h4>homeworld: {data.data.homeworld} </h4></li>
-<li className="list-group-item"><h4>skin_color: {data.data.skin_color} </h4></li>
-<li className="list-group-item"><h4>hair_color: {data.data.hair_color} </h4></li>
-<li className="list-group-item"><h4>eye_color: {data.data.eye_color} </h4></li>
-<button
-className='btn btn-outline-primary'
-onClick={onNavigateBack}
->Back</button> */}
