@@ -35,7 +35,6 @@ export const DashBoard = () => {
                 setButtons(Array.from(Array(Math.ceil(data.count / 10)).keys()))
                 setCharacters(data.results)
                 pagesToShow(page)
-                // localStorage.setItem('list', JSON.stringify(data.results))
             })
 
     }
@@ -65,7 +64,7 @@ export const DashBoard = () => {
                         endIndex={endIndex}
                     />
                     <div className='d-flex align-items-center justify-content-center'>
-                        <div className="row">
+                        <div className="row row-cols-5">
                             {
                                 characters?.map((character, index) => {
                                     if (index > 15) index++

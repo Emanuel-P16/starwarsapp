@@ -1,30 +1,19 @@
-// https://starwars-visualguide.com/assets/img/characters/1.jpg
-import placeholder from '../assets/placeholder.jpg'
 import { Link } from "react-router-dom"
 
-// "https://starwars-visualguide.com/assets/img/characters/1.jpg"
 export const PeopleList = ({ index,selection, ...character }) => {
     let choice = selection
     let imgPath = `/assets/${character.url.slice(character.url.search(choice))}`
     imgPath = imgPath.slice(0,-1)
-    // if (choice === 'people') {
-    //     choice = 'characters'
-    // } 
     return (
         <div className="col mb-5">
-            <div className="card text-center bg-dark" style={{ width: '12.5rem' }}>
-                {/* <img src={`https://starwars-visualguide.com/assets/img/${choice}/${index + 1}.jpg`} className="img-fluid" alt="" /> */}
-                <img src={`${imgPath}.jpg`} className="img-fluid" onError={(e)=> {
+            <div className="card text-center bg-dark" style={{height:'23rem'}}>
+                <img src={`${imgPath}.jpg`} className="img-fluid" alt='' onError={(e)=> {
                     e.onError = null
                     e.target.src=`/assets/placeholder.jpg`}} />
-                {/* <img src={`${placeholder}`} alt="" /> */}
                 <div className="card-body">
                     <Link className="link-light" to={`/${character.url.slice(character.url.search(choice))}`}>
-                        <h5 className="card-title">{(character.name) ? character.name : character.title}</h5>
+                        <h5 className="card-title position-absolute bottom-0 start-50 translate-middle-x">{(character.name) ? character.name : character.title}</h5>
                     </Link>
-                    {/* <Link to={`/${selection}/${index}`}>
-                        <h5 className="card-title">{(character.name) ? character.name : character.title}</h5>
-                    </Link> */}
                 </div>
             </div>
         </div>

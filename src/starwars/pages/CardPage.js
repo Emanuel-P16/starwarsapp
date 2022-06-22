@@ -1,7 +1,7 @@
 
 import { useParams, useNavigate } from 'react-router-dom'
 import { Spinner } from '../../ui/components/Spinner'
-import { Toast } from '../../ui/components/Toast'
+// import { Toast } from '../../ui/components/Toast'
 import { useFetchId } from '../hooks/useFetchId'
 export const CardPage = () => {
     const { selection, id } = useParams()
@@ -69,13 +69,9 @@ export const CardPage = () => {
                         <div className="col-md-6">
                             <div className="card-body">
                                 <h5 className="card-title text-center">{data.data.name}</h5>
-                                {/* <ul className="list-group list-group-flush"> */}
                                 {attributes.map((x, index) => {
                                     return (
-                                        // <li className="list-group-item" key={index} >
                                         <p key={index} className=''> {x.charAt(0).toUpperCase() + x.slice(1).replace('_', ' ')}: {data.data[x]}</p>
-
-                                        // </li>
                                     )
                                 })}
                                 <div className='container d-flex align-items-center justify-content-center'>
