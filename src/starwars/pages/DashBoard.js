@@ -19,12 +19,15 @@ export const DashBoard = () => {
         setWhatPage(1)
         setStartIndex(0)
         setEndindex(4)
-        getAllPeople()
+        if (selection !== 'favs') {
+            getAllPeople()
+        } else {
+            getFavs()
+        }
     }, [selection])
 
     const getAllPeople = (page = 1) => {
         setCharacters(null)
-
         setWhatPage(page)
         fetch(`https://swapi.dev/api/${selection}/?page=${page}`)
             .then(resp => resp.json())
@@ -35,6 +38,11 @@ export const DashBoard = () => {
                 // localStorage.setItem('list', JSON.stringify(data.results))
             })
 
+    }
+    const getFavs = () => {
+        const char = JSON.parse(localStorage.getItem('favs'))
+        setButtons([0])
+        setCharacters(char)
     }
     const pagesToShow = (page) => {
         if (page !== 1) {
