@@ -1,22 +1,14 @@
-import { useState } from "react"
-
 export const BtnToolbar = ({ buttons, getAllPeople, whatPage,startIndex,endIndex }) => {  
     return (
-        <ul className="pagination justify-content-end mt-5 mb-2" style={{ marginRight: '0.25rem' }}>
+        <ul className="pagination justify-content-end mt-2 mb-2" style={{ marginRight: '0.25rem' }}>
             {(whatPage === 1) ? null : <li className="page-item">
                 <button
                     className="page-link"
                     onClick={() => { (whatPage !== 1) && getAllPeople(whatPage - 1) }}
                 >{"<"}</button>
             </li>}
-            {/* <li className="page-item">
-                <button
-                    className="page-link"
-                    onClick={() => { (whatPage !== 1) && getAllPeople(whatPage - 1) }}
-                >{"<"}</button>
-            </li> */}
-             {/* {Array.from(Array(buttons)).slice(startIndex,endIndex).map((x, index) => { */}
             {buttons.slice(startIndex,endIndex).map((x, index) => {
+                if(x === null){return null}
                 if (x + 1 === whatPage) {
                     return (
                         <li className={`'page-item'`} key={index + 1}>
@@ -27,7 +19,6 @@ export const BtnToolbar = ({ buttons, getAllPeople, whatPage,startIndex,endIndex
                         </li>
                     )
                 } else {
-                    // {(whatPage > index + 3) ?  console.log('hola') :  console.log('nou') }
                     return (
                         <li className={`'page-item'`} key={index + 1}>
                             <button
@@ -38,10 +29,10 @@ export const BtnToolbar = ({ buttons, getAllPeople, whatPage,startIndex,endIndex
                     )
                 }
             })}
-            {(whatPage === buttons ? null : <li className="page-item">
+            {(whatPage === buttons.length ? null : <li className="page-item">
                 <button
                     className="page-link"
-                    onClick={() => { (whatPage < buttons) && getAllPeople(whatPage + 1) }}
+                    onClick={() => { (whatPage < buttons.length) && getAllPeople(whatPage + 1) }}
                 >{">"}</button>
             </li>)}
 

@@ -60,6 +60,12 @@ export const Navbar = () => {
                         >
                             Films
                         </NavLink>
+                        <NavLink
+                            className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+                            to='/favs'
+                        >
+                          Favorites
+                        </NavLink>
                     </ul>
                     <div className='d-flex'>
                         <ul className='navbar-nav ml-auto'>

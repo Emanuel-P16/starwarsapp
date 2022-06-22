@@ -6,29 +6,27 @@ import { PeopleList } from "../components/PeopleList"
 
 
 export const DashBoard = () => {
-    const [characters, setCharacters] = useState([])//useState(JSON.parse(localStorage.getItem('list')))
+    const [characters, setCharacters] = useState([])
     const [buttons, setButtons] = useState([0])
     const [whatPage, setWhatPage] = useState(1)
-    const [startIndex,setStartIndex] = useState(0)
-    const [endIndex,setEndindex] = useState(11)
-
-    // const people = JSON.parse(localStorage.getItem('list')) /// characters 
+    const [startIndex, setStartIndex] = useState(0)
+    const [endIndex, setEndindex] = useState(4)
     let { selection = 'people' } = useParams()
 
     useEffect(() => {
-        // if (!characters) {
-        //     getAllPeople()
-        // }
         setCharacters(null)
+        setButtons([0])
+        setWhatPage(1)
+        setStartIndex(0)
+        setEndindex(4)
         getAllPeople()
     }, [selection])
 
-    const getAllPeople = async(page = 1) => {
-        // setCharacters(null)
+    const getAllPeople = (page = 1) => {
+        setCharacters(null)
+
         setWhatPage(page)
-        
-        let i = 1;
-        await fetch(`https://swapi.dev/api/${selection}/?page=${page}`)
+        fetch(`https://swapi.dev/api/${selection}/?page=${page}`)
             .then(resp => resp.json())
             .then(data => {
                 setButtons(Array.from(Array(Math.ceil(data.count / 10)).keys()))
@@ -39,22 +37,14 @@ export const DashBoard = () => {
 
     }
     const pagesToShow = (page) => {
-        if(page !== 1 ) {
-            // console.log(page)
-            // setStartIndex(page+1)
-            // setEndindex(page+2)
-            let arr =buttons.map((x,index)=>{
-                console.log(x)
-                if(x >= page-1){
-                    return x
-                } else {
-                    return null 
-                } 
-            })
-            console.log(arr.filter(e=>e))
-            // setButtons(arr.filter(e=>e))
-
+        if (page !== 1) {
+            setStartIndex(page - 2)
+            setEndindex(page + 2)
+            if (page === buttons.length) {
+                setStartIndex(page - 4)
+            }
         }
+
     }
     if (characters) {
         return (
@@ -66,7 +56,7 @@ export const DashBoard = () => {
                         startIndex={startIndex}
                         endIndex={endIndex}
                     />
-                    <div className='d-flex align-items-center justify-content-center' >
+                    <div className='d-flex align-items-center justify-content-center'>
                         <div className="row">
                             {
                                 characters?.map((character, index) => {
@@ -88,7 +78,15 @@ export const DashBoard = () => {
         )
     } else {
         return (
+        <div className="container">
+            <BtnToolbar buttons={buttons}
+                getAllPeople={getAllPeople}
+                whatPage={whatPage}
+                startIndex={startIndex}
+                endIndex={endIndex}
+            />
             <Spinner />
+        </div>
         )
     }
 }
