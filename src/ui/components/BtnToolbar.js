@@ -17,12 +17,12 @@ export const BtnToolbar = ({ buttons, getAllPeople, whatPage,startIndex,endIndex
             </li> */}
              {/* {Array.from(Array(buttons)).slice(startIndex,endIndex).map((x, index) => { */}
             {buttons.slice(startIndex,endIndex).map((x, index) => {
-                if (index + 1 === whatPage) {
+                if (x + 1 === whatPage) {
                     return (
                         <li className={`'page-item'`} key={index + 1}>
                             <button
                                 className="page-link active"
-                                onClick={() => getAllPeople(index + 1)}
+                                onClick={() => getAllPeople(x + 1)}
                             >{x+1}</button>
                         </li>
                     )
@@ -32,7 +32,7 @@ export const BtnToolbar = ({ buttons, getAllPeople, whatPage,startIndex,endIndex
                         <li className={`'page-item'`} key={index + 1}>
                             <button
                                 className="page-link"
-                                onClick={() => getAllPeople(index + 1)}
+                                onClick={() => getAllPeople(x + 1)}
                             >{x+1}</button>
                         </li>
                     )
