@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/.github.io/starwarsapp/static/css/main.cb8c3a23.css",
+    "main.js": "/.github.io/starwarsapp/static/js/main.43517916.js",
+    "static/media/giphy.gif": "/.github.io/starwarsapp/static/media/giphy.842ea11e32c7f1d668ad.gif",
+    "index.html": "/.github.io/starwarsapp/index.html",
+    "main.cb8c3a23.css.map": "/.github.io/starwarsapp/static/css/main.cb8c3a23.css.map",
+    "main.43517916.js.map": "/.github.io/starwarsapp/static/js/main.43517916.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb8c3a23.css",
+    "static/js/main.43517916.js"
+  ]
+}
