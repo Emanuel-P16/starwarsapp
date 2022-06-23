@@ -20,11 +20,11 @@ export const Footer = () => {
                     ><i className="fab fa-github"></i
                     ></a>
                     <a
-                        class="btn btn-link btn-floating btn-lg text-warning m-1"
+                        className="btn btn-link btn-floating btn-lg text-warning m-1"
                         href="https://www.linkedin.com/in/emanuel-palazon/"
                         role="button"
                         data-mdb-ripple-color="dark"
-                    ><i class="fab fa-linkedin"></i
+                    ><i className="fab fa-linkedin"></i
                     ></a>
                 </section>
             </div>
