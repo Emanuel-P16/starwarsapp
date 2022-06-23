@@ -8,7 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   background-image:  url('../public/assets/giphy.gif');
-  background-size:100%;
+  background-size:200%;
   background-repeat: repeat-y;
   background-attachment: fixed;
 }
@@ -21,8 +21,9 @@ code {
 
 .bg{
     background-image:  url('../public/assets/giphy.gif');
-    background-size:100%;
+    background-size:200%;
     background-repeat: repeat-y;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     height: 100%;
+    
 }

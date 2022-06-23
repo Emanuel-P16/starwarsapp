@@ -31,6 +31,7 @@ export const CardPage = () => {
             if (!isFavs) {
                 favsData.push(data)
                 localStorage.setItem('favs', JSON.stringify(favsData))
+                alert('item added to favorites')
             } else {
                 alert('Item already in favorites')
 
