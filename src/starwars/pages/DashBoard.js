@@ -12,6 +12,9 @@ export const DashBoard = () => {
     const [startIndex, setStartIndex] = useState(0)
     const [endIndex, setEndindex] = useState(4)
     let { selection = 'people' } = useParams()
+    if (selection === 'starwarsapp') {
+        selection = 'people'
+    }
 
     useEffect(() => {
         setCharacters(null)
