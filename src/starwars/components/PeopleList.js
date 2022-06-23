@@ -4,6 +4,7 @@ export const PeopleList = ({ index, selection, ...character }) => {
     let choice = selection
     let imgPath = `/assets/${character.url.slice(character.url.search(choice))}`
     imgPath = imgPath.slice(0, -1)
+    let change = ''
     return (
         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col mb-3">
             <div className="card text-center bg-dark" style={{width: '12rem' ,height:'20rem'}}>
