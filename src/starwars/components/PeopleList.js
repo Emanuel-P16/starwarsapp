@@ -5,8 +5,8 @@ export const PeopleList = ({ index, selection, ...character }) => {
     let imgPath = `${process.env.PUBLIC_URL}/assets/${character.url.slice(character.url.search(choice))}`
     imgPath = imgPath.slice(0, -1)    
     return (
-        <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col mb-3">
-            <div className="card text-center bg-dark" style={{width: '12rem' ,height:'20rem'}}>
+        <div className="col-xl-3 col-lg-2 col-md-4 col-sm-4 mb-3">
+            <div className="card text-center bg-dark" style={{width: '13rem' ,height:'20rem'}}>
                     <img src={`${imgPath}.jpg`} className="img-fluid" alt='' onError={(e) => {
                         e.onError = null
                         e.target.src = `${process.env.PUBLIC_URL}/assets/placeholder.png`

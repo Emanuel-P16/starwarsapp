@@ -43,9 +43,9 @@ export const CardPage = () => {
         // localStorage.setItem('favs',JSON.stringify(data))
     }
     if (data.data) {
-        let imgPath = `/assets/${data.data.url.slice(data.data.url.search(choice))}`
+        let imgPath = `${process.env.PUBLIC_URL}/assets/${data.data.url.slice(data.data.url.search(choice))}`
         imgPath = imgPath.slice(0, -1)
-        let imgDefault = '/assets/placeholder.jpg'
+        let imgDefault = `${process.env.PUBLIC_URL}/assets/placeholder.jpg`
         attributes = Object.keys(data.data)
         attributes = attributes.filter(x => {
             return x !== 'url' && x !== 'created' && x !== 'edited' && x !== 'starships' && x !== 'vehicles' && x !== 'films' && x !== 'homeworld' && x !== 'species' && x !== 'people' && x !== 'characters' && x !== 'planets' && x !== 'episode_id' && x !== 'residents'
