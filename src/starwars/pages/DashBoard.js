@@ -56,15 +56,15 @@ export const DashBoard = () => {
     if (characters) {
         return (
             <>
-                <div className="container">
+                <div className="container-fluid">
                     <BtnToolbar buttons={buttons}
                         getAllPeople={getAllPeople}
                         whatPage={whatPage}
                         startIndex={startIndex}
                         endIndex={endIndex}
                     />
-                    <div className='d-flex align-items-center justify-content-center'>
-                        <div className="row row-cols-5">
+                    <div className='d-flex  ms-5 ms-xl-0 ms-lg-0 ms-md-0 ms-sm-0'>
+                        <div className="row">
                             {
                                 characters?.map((character, index) => {
                                     if (index > 15) index++
