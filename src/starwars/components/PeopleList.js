@@ -6,7 +6,7 @@ export const PeopleList = ({ index,selection, ...character }) => {
     imgPath = imgPath.slice(0,-1)
     return (
         <div className="col mb-5">
-            <div className="card text-center bg-dark" style={{height:'23rem'}}>
+            <div className="card text-center bg-dark" style={{height:'26rem'}}>
                 <img src={`${imgPath}.jpg`} className="img-fluid" alt='' onError={(e)=> {
                     e.onError = null
                     e.target.src=`/assets/placeholder.jpg`}} />
