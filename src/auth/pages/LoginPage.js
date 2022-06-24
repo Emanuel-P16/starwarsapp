@@ -24,10 +24,10 @@ export const LoginPage = () => {
                         <form
                             className="d-flex flex-column align-items-center"
                             onSubmit={onLogSubmit}>
-                            <label  className="form-label text-warning">Nombre de usuario</label>
+                            <label  className="form-label text-warning">Username</label>
                             <input
                                 type="text"
-                                placeholder="Ingrese nombre de usuario"
+                                placeholder="Insert username"
                                 className="form-control mb-2"
                                 id="userID"
                                 name="searchText"
