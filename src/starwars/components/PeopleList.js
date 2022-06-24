@@ -9,7 +9,7 @@ export const PeopleList = ({ index, selection, ...character }) => {
             <div className="card text-center bg-dark" style={{width: '13rem' ,height:'20rem'}}>
                     <img src={`${imgPath}.jpg`} className="img-fluid" alt='' onError={(e) => {
                         e.onError = null
-                        e.target.src = `${process.env.PUBLIC_URL}/assets/placeholder.png`
+                        e.target.src = `${process.env.PUBLIC_URL}/assets/placeholder.jpg`
                     }} 
                     style={{height: '15rem'}}
                     />

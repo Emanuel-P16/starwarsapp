@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { BtnToolbar } from "../../ui/components/BtnToolbar"
+import { Footer } from "../../ui/components/Footer"
 import { Spinner } from "../../ui/components/Spinner"
 import { PeopleList } from "../components/PeopleList"
 
@@ -43,8 +44,12 @@ export const DashBoard = () => {
     }
     const getFavs = () => {
         const char = JSON.parse(localStorage.getItem('favs'))
-        setButtons([0])
-        setCharacters(char)
+        if (!char) {
+            setCharacters([])
+        } else {
+            setButtons([0])
+            setCharacters(char)
+        }
     }
     const pagesToShow = (page) => {
         if (page !== 1) {
@@ -58,8 +63,8 @@ export const DashBoard = () => {
     }
     if (characters) {
         return (
-            <>
-                <div className="container">
+            <div className="d-flex flex-column min-vh-100">
+                <div className=" container">
                     <BtnToolbar buttons={buttons}
                         getAllPeople={getAllPeople}
                         whatPage={whatPage}
@@ -84,7 +89,8 @@ export const DashBoard = () => {
                         </div>
                     </div>
                 </div>
-            </>
+                    <Footer/>
+            </div>
         )
     } else {
         return (
@@ -96,6 +102,7 @@ export const DashBoard = () => {
                 endIndex={endIndex}
             />
             <Spinner />
+            <Footer/>
         </div>
         )
     }

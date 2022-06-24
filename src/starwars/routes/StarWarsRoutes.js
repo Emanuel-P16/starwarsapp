@@ -12,7 +12,7 @@ export const StarWarsRoutes = () => {
                     <Route path="/:selection" element={<DashBoard/>}/>
                     <Route path="/:selection/:id" element={<CardPage/>}/>
                 </Routes>
-                <Footer />
+                {/* <Footer /> */}
         </>
     )
 }

@@ -1,7 +1,7 @@
 
 export const Footer = () => {
     return (
-        <footer className="text-center text-white">
+        <footer className="text-center text-white mt-auto">
             <div className="container pt-4">
                 <section className="mb-4">
                     <h5>
